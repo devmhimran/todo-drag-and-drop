@@ -1,0 +1,15 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "mongodb"
+}
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["mongodb"]
+}
+
+model Todo {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  text      String
+  serial Int
+}
